@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class Conexao extends SQLiteOpenHelper {
 
-    private static final String name = "teste.db";
+    private static final String name = "teste3.db";
     private static final int version = 1;
 
     public Conexao(Context context) {
@@ -23,7 +23,7 @@ public class Conexao extends SQLiteOpenHelper {
     public static final String LOGIN_EMAIL = "email";
     public static final String LOGIN_SENHA = "senha";
 
-    //tabela Pessoa
+    //tabela Vacina
     public static final String TBL_PESSOA = "pessoa";
     public static final String PESSOA_ID = "id";
     public static final String PESSOA_NOME = "nome";
@@ -40,6 +40,8 @@ public class Conexao extends SQLiteOpenHelper {
     public static final String VACINA_VALIDADE = "validade";
     public static final String VACINA_RESPONSAVEL = "responsavel";
     public static final String VACINA_UNIDADE = "unidade";
+    //chave estrangeira
+    public static final String VACINA_PESSOA_ID = "vacina_pessoa_id";
 
     //Estrutura das tabelas
     private static final String DATABASE_CREATE_1 = "create table " +
@@ -66,8 +68,9 @@ public class Conexao extends SQLiteOpenHelper {
             VACINA_LOTE + " text, " +
             VACINA_VALIDADE + " text, " +
             VACINA_RESPONSAVEL + " text, " +
-            VACINA_UNIDADE + " text, FOREIGN KEY ( vacina_pessoa ) REFERENCES " +
-            "pessoa ( id ) ON DELETE RESTRICT ON UPDATE CASCADE);";
+            VACINA_UNIDADE + " text, " +
+            VACINA_PESSOA_ID + " integer, FOREIGN KEY ( VACINA_PESSOA_ID ) REFERENCES " +
+            "TBL_PESSOA ( PESSOA_ID  ) ON DELETE RESTRICT ON UPDATE CASCADE)";
 
 
 
@@ -77,7 +80,7 @@ public class Conexao extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE_1);
         database.execSQL(DATABASE_CREATE_2);
-        database.execSQL(DATABASE_CREATE_2);
+        database.execSQL(DATABASE_CREATE_3);
 
     }
 
