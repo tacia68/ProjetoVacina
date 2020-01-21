@@ -16,9 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText sus;
     private EditText parentesco;
     private PessoaDAO dao;
-    private Pessoa pessoa = null;
 
-    private Button adicionar;
+
 
 
     @Override
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         parentesco = findViewById(R.id.textParentesco);
         dao = new PessoaDAO(this);
     }
+
 
     //xml adicionar no botão adicionar
     public void adicionar(View view) {

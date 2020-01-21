@@ -23,7 +23,7 @@ public class Conexao extends SQLiteOpenHelper {
     public static final String LOGIN_EMAIL = "email";
     public static final String LOGIN_SENHA = "senha";
 
-    //tabela Vacina
+    //tabela Pessoa
     public static final String TBL_PESSOA = "pessoa";
     public static final String PESSOA_ID = "id";
     public static final String PESSOA_NOME = "nome";
