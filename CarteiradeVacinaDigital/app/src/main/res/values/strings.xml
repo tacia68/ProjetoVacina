@@ -4,9 +4,17 @@
     <string name="prompt_cpf">CPF</string>
     <string name="prompt_senha">Senha</string>
     <string name="action_sign_in">Entrar</string>
-    <string name="action_sign_in_short">Entrar</string>
+    <string name="action_sign">Cadastre-se</string>
+    <string name="action_sign_up">Cadastrar</string>
     <string name="welcome">"Bem vindx !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="acao_cadastrar">"Cadastrar"</string>
+
+    <string name="ou">ou</string>
+    <string name="prompt_nome">Nome</string>
+    <string name="prompt_email">E-mail</string>
+    <string name="prompt_confsenha">Confirmar Senha</string>
+
 </resources>

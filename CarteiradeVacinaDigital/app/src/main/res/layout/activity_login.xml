@@ -13,7 +13,7 @@
 
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/btLogin"
         android:layout_width="166dp"
         android:layout_height="52dp"
         android:layout_gravity="start"
@@ -65,25 +65,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="ou"
+        android:text="@string/ou"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/linkCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Cadastre-se"
+        android:text="@string/action_sign"
+        android:background="@color/colorAccent"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintTop_toBottomOf="@+id/btLogin"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -135,7 +136,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
 
-            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeActionLabel="@string/action_sign_in"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
