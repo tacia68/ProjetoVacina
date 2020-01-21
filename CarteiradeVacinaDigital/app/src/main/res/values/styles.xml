@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -8,4 +8,26 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MyProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressTint" tools:targetApi="lollipop">@color/colorPrimaryDark</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
+
+    <style name="StyledTilEditTextTheme">
+        <item name="colorControlNormal">@color/colorPrimaryDark</item> // Cor padrão da linha
+        <item name="colorControlActivated">@color/colorPrimaryDark</item> // Cor linha e texto quando recebe foco
+    </style>
+
+    <style name="StyledTilEditText">
+        <item name="android:theme">@style/StyledTilEditTextTheme</item>
+        <item name="android:paddingTop">4dp</item>
+       <!-- <item name="android:textColorHint">#000</item> // Cor texto(hint) sem foco -->
+    </style>
+
 </resources>
+
