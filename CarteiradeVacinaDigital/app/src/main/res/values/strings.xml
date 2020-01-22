@@ -16,5 +16,28 @@
     <string name="prompt_nome">Nome</string>
     <string name="prompt_email">E-mail</string>
     <string name="prompt_confsenha">Confirmar Senha</string>
+    <string name="title_activity_painel_pessoa">Painel</string>
+    <string name="prompt_sangue">Tipo Sanguíneo</string>
+    <string name="prompt_sus">Cartão do SUS</string>
+    <string name="prompt_parentesco">Parentesco</string>
+
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="search">Pesquisar...</string>
+
+
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_edit">Editar</string>
+    <string name="menu_remover">Apagar</string>
+
 
 </resources>

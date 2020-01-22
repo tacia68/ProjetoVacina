@@ -8,8 +8,6 @@ import android.os.Handler;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
-import br.fabrica.projeto.carteiravacinadigital.ui.login.LoginActivity;
-
 
 public class Apresentacao extends AppCompatActivity {
 

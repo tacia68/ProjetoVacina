@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroPrincipal">
-
+    tools:context=".CadastroPessoa">
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="391dp"
@@ -45,7 +44,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_cpf"
+        android:id="@+id/layout_tipo_sangue"
         style="@style/StyledTilEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,14 +54,14 @@
         tools:layout_editor_absoluteX="-16dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtCpf"
+            android:id="@+id/txtSangue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
 
-            android:hint="@string/prompt_cpf"
+            android:hint="@string/prompt_sangue"
             android:inputType="text|numberSigned"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,25 +70,25 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_email"
+        android:id="@+id/layout_sus"
         style="@style/StyledTilEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/layout_cpf"
+        app:layout_constraintTop_toBottomOf="@+id/layout_tipo_sangue"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtEmail"
+            android:id="@+id/txtSus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
 
-            android:hint="@string/prompt_email"
-            android:inputType="textEmailAddress"
+            android:hint="@string/prompt_sus"
+            android:inputType="numberSigned"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,24 +96,24 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_senha"
+        android:id="@+id/layout_parentesco"
         style="@style/StyledTilEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/layout_email"
+        app:layout_constraintTop_toBottomOf="@+id/layout_sus"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtSenhaCadastro"
+            android:id="@+id/textParentesco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
 
-            android:hint="@string/prompt_senha"
+            android:hint="@string/prompt_parentesco"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,31 +121,6 @@
             app:layout_constraintTop_toTopOf="parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_ConfSenha"
-        style="@style/StyledTilEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/layout_senha"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-10dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtConfSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="96dp"
-            android:layout_marginEnd="24dp"
-
-            android:hint="@string/prompt_confsenha"
-            android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btCadastrar"
@@ -156,13 +130,13 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="144dp"
         android:background="@color/colorPrimary"
         android:text="@string/action_sign_up"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_ConfSenha"
         app:layout_constraintVertical_bias="0.0" />
