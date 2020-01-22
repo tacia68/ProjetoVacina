@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -41,7 +44,41 @@ public class ListarPessoasActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater i = getMenuInflater();
         i.inflate(R.menu.menu_principal, menu);
+
+        SearchView sv = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                return false;
+            }
+
+            //verifica as letras que o usuario digitar
+            @Override
+            public boolean onQueryTextChange(String s) {
+                procurarPessoas(s);
+                return false;
+            }
+        });
         return true;
+    }
+
+    //Buscar os valores digitados
+    public void procurarPessoas(String tipoVacina){
+        pessoasFiltradas.clear();
+        for(Pessoa p : pessoas){
+            if (p.getNome().toLowerCase().contains(tipoVacina.toLowerCase())){
+                pessoasFiltradas.add(p);
+            }
+
+        }
+        listView.invalidateViews();
+    }
+    //chamada de menu context para excluir e editar
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu, v,menuInfo);
+        MenuInflater i = getMenuInflater();
+        i.inflate(R.menu.menu_contexto, menu);
     }
 
     //clicar no icone "+" chama a tela de cadastro

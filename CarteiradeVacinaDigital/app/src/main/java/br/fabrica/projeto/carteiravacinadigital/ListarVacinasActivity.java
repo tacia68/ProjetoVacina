@@ -37,7 +37,7 @@ public class ListarVacinasActivity extends AppCompatActivity {
         registerForContextMenu(listView);
 
     }
-    //Aplicar o menu principal na lista Vacinas
+    //Aplicar o menu principal na lista Vacinas, Realizar a busca filtrada
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater i = getMenuInflater();
         i.inflate(R.menu.menu_principal, menu);
