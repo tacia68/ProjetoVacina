@@ -48,12 +48,12 @@ public class Pessoa implements Serializable {
         this.parentesco = parentesco;
     }
 
-   /* @Override
+   @Override
     public String toString(){
         return nome;
-    }*/
+    }
 
-    @Override
+  /*  @Override
     public String toString() {
         return "Pessoa Cadastrada{" +
                 "" + nome + '\'' +
@@ -61,5 +61,5 @@ public class Pessoa implements Serializable {
                 ", '" + sus + '\'' +
                 ", '" + parentesco + '\'' +
                 '}';
-    }
+    }*/
 }

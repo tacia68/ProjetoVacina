@@ -4,6 +4,7 @@
     <item
         android:icon="@android:drawable/ic_input_add"
         android:title="Cadastrar"
+        android:onClick="cadastrar"
         app:showAsAction="always" />
     <item
         android:id="@+id/app_bar_search"
