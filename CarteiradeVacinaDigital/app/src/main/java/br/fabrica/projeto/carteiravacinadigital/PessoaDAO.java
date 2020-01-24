@@ -56,4 +56,14 @@ public class PessoaDAO {
     public void  excluir(Pessoa p){
         teste3.delete("pessoa", "id = ?", new String[]{p.getId().toString()});
     }
+
+    public  void  atualizar(Pessoa pessoa){
+        ContentValues values = new ContentValues();
+        values.put("nome", pessoa.getNome());
+        values.put("tiposanguineo", pessoa.getTiposanguineo());
+        values.put("sus", pessoa.getSus());
+        values.put("parentesco", pessoa.getParentesco());
+        teste3.update("pessoa", values, "id = ?", new String[]
+                {pessoa.getId().toString()});
+    }
 }

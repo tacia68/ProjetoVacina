@@ -108,6 +108,15 @@ public class ListarPessoasActivity extends AppCompatActivity {
         Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
     }
+    public void atualizar(MenuItem item){
+
+        //verifica a posição que esta sendo clicada
+        AdapterView.AdapterContextMenuInfo menuInfo =(AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final Pessoa pessoaAtualizar = pessoasFiltradas.get(menuInfo.position);
+        Intent it = new Intent(this, MainActivity.class);
+        it.putExtra("pessoa", pessoaAtualizar);
+        startActivity(it);
+    }
 
     // atualizar a lista de pessoas cadastradas quando voltar
 

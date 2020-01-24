@@ -2,6 +2,7 @@ package br.fabrica.projeto.carteiravacinadigital;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText sus;
     private EditText parentesco;
     private PessoaDAO dao;
+    private Pessoa pessoa = null;
 
 
 
@@ -31,17 +33,43 @@ public class MainActivity extends AppCompatActivity {
         sus = findViewById(R.id.textSus);
         parentesco = findViewById(R.id.textParentesco);
         dao = new PessoaDAO(this);
+
+
+        // Se já existe uma pessoa então mostra esse aluno, função para poder atualizar depois
+        Intent it = getIntent();
+        if (it.hasExtra("pessoa")){
+            pessoa = (Pessoa) it.getSerializableExtra("pessoa");
+            nome.setText((pessoa.getNome()));
+            tiposanguineo.setText((pessoa.getTiposanguineo()));
+            sus.setText((pessoa.getSus()));
+            parentesco.setText((pessoa.getParentesco()));
+
+
+        }
     }
 
 
     //xml adicionar no botão adicionar
     public void adicionar(View view) {
-        Pessoa p = new Pessoa();
-        p.setNome(nome.getText().toString());
-        p.setTiposanguineo(tiposanguineo.getText().toString());
-        p.setSus(sus.getText().toString());
-        p.setParentesco(parentesco.getText().toString());
-        long id = dao.inserir(p);
-        Toast.makeText(this, "Pessoa inserido com id : " + id, Toast.LENGTH_SHORT).show();
+        //Se não veio nenhum aluno da listagem, Então é cadastro
+        if (pessoa == null){
+            pessoa = new Pessoa();
+            pessoa.setNome(nome.getText().toString());
+            pessoa.setTiposanguineo(tiposanguineo.getText().toString());
+            pessoa.setSus(sus.getText().toString());
+            pessoa.setParentesco(parentesco.getText().toString());
+            long id = dao.inserir(pessoa);
+            Toast.makeText(this, "Pessoa inserido com id : " + id, Toast.LENGTH_SHORT).show();
+// Se já está criado
+        } else{
+            pessoa.setNome(nome.getText().toString());
+            pessoa.setTiposanguineo(tiposanguineo.getText().toString());
+            pessoa.setSus(sus.getText().toString());
+            pessoa.setParentesco(parentesco.getText().toString());
+            dao.atualizar(pessoa);
+            Toast.makeText(this, "Pessoa atualizada", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 }
