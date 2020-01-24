@@ -37,8 +37,9 @@ public class ListarPessoasActivity extends AppCompatActivity {
         pessoas = dao.obterTodos();
         pessoasFiltradas.addAll(pessoas);
         //adaptador de pessoa
-        ArrayAdapter<Pessoa> adaptador = new ArrayAdapter<Pessoa>(this, android.R.layout.simple_list_item_1, pessoasFiltradas);
-
+        //ArrayAdapter<Pessoa> adaptador = new ArrayAdapter<Pessoa>(this, android.R.layout.simple_list_item_1, pessoasFiltradas);
+        //Criar agora para listar de forma organizada
+        PessoaAdapter adaptador = new PessoaAdapter(this, pessoasFiltradas);
         listView.setAdapter(adaptador);
         registerForContextMenu(listView); // Quando o list view for pressionado vai abrir o context Menu
     }

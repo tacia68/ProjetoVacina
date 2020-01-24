@@ -64,4 +64,20 @@ public class VacinaDAO {
         }
         return vacina;
     }
+    public void  excluir(Vacina v){
+        teste3.delete("vacina", "id = ?", new String[]{v.getId().toString()});
+    }
+
+    public  void  atualizar(Vacina vacina){
+        ContentValues values = new ContentValues();
+        values.put("tipo", vacina.getTipoVacina());
+        values.put("data", vacina.getData());
+        values.put("lote", vacina.getLote());
+        values.put("validade", vacina.getValidade());
+        values.put("responsavel", vacina.getResponsavel());
+        values.put("unidade", vacina.getUnidade());
+        values.put("vacina_pessoa_id", vacina.getVacinaPessoaId());
+        teste3.update("vacina", values, "id = ?", new String[]
+                {vacina.getId().toString()});
+    }
 }
