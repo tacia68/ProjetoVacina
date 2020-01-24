@@ -72,6 +72,11 @@ public class ListarVacinasActivity extends AppCompatActivity {
         listView.invalidateViews();
     }
 
+    // Método excluir
+ //   public void excluir(MenuItem item){
+
+   // }
+
     //clicar no icone "+" chama a tela de cadastro de vacina
     public void cadastrar(MenuItem item){
         Intent it = new Intent(this, VacinaActivity.class);

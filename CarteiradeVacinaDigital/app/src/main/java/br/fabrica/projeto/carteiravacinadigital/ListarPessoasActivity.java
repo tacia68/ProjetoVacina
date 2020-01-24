@@ -1,7 +1,9 @@
 package br.fabrica.projeto.carteiravacinadigital;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -9,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -37,7 +40,7 @@ public class ListarPessoasActivity extends AppCompatActivity {
         ArrayAdapter<Pessoa> adaptador = new ArrayAdapter<Pessoa>(this, android.R.layout.simple_list_item_1, pessoasFiltradas);
 
         listView.setAdapter(adaptador);
-        registerForContextMenu(listView);
+        registerForContextMenu(listView); // Quando o list view for pressionado vai abrir o context Menu
     }
 
     //Aplicar o menu principal na lista pessoas
@@ -79,6 +82,25 @@ public class ListarPessoasActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v,menuInfo);
         MenuInflater i = getMenuInflater();
         i.inflate(R.menu.menu_contexto, menu);
+    }
+
+    public void excluir(MenuItem item){
+        AdapterView.AdapterContextMenuInfo menuInfo =(AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final Pessoa pessoaExcluir = pessoasFiltradas.get(menuInfo.position);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Atenção")
+                .setMessage("Realmente deseja excluir a vacina?")
+                .setNegativeButton("NÂO", null)
+                .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        pessoasFiltradas.remove(pessoaExcluir);
+                        pessoas.remove(pessoaExcluir);
+                        dao.excluir(pessoaExcluir);
+                        listView.invalidateViews();
+                    }
+                }).create();
+        dialog.show();
     }
 
     //clicar no icone "+" chama a tela de cadastro

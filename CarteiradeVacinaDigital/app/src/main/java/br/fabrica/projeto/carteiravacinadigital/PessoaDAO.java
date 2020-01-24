@@ -52,4 +52,8 @@ public class PessoaDAO {
         }
         return pessoa;
     }
+
+    public void  excluir(Pessoa p){
+        teste3.delete("pessoa", "id = ?", new String[]{p.getId().toString()});
+    }
 }
