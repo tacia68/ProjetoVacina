@@ -1,27 +1,24 @@
 package br.fabrica.projeto.carteiravacinadigital.adapters;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
-import android.os.Bundle;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-import br.fabrica.projeto.carteiravacinadigital.Pessoa;
+import br.fabrica.projeto.carteiravacinadigital.PainelVacina;
+import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 import br.fabrica.projeto.carteiravacinadigital.R;
 
 
@@ -30,9 +27,9 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
     private  Context mContext;
 
     //Construtor da classe
-    public AdapterPessoa(List<Pessoa> programacao, Context mContext){
+    public AdapterPessoa(List<Pessoa> pessoa, Context mContext){
         super();
-        this.pessoa = programacao;
+        this.pessoa = pessoa;
         this.mContext = mContext;
     }
 
@@ -69,7 +66,14 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
                         return false;
                     }
                 });
+
                 popupMenu.show();
+            }
+        });
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(new Intent(mContext,PainelVacina.class));
             }
         });
         //Deaclaração dos parâmetros que são buscados no banco de dados e inseridos em uma lista

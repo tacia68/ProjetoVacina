@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    card_view:cardCornerRadius="4dp"
+    card_view:layout_constraintStart_toStartOf="parent"
+    card_view:layout_constraintTop_toTopOf="parent"
     tools:context=".adapters.AdapterVacina">
+    <TextView
+        android:id="@+id/textNomePessoa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="Maria Aparecida dos Santos Pereira Costa"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="20sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingTop="0dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textNome"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HPV"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/ib_popup_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="300sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_more_vert_black_24dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:text="Data: 00/00/2019" />
+
+
+            <TextView
+                android:id="@+id/textValidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textTipoSague"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Validade: 00/00/2019" />
+
+            <TextView
+                android:id="@+id/textLote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textTipoSague"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Lote:0007"/>
+
+            <TextView
+                android:id="@+id/textResp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textTipoSague"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Responsável: Fulano de Tal"/>
+
+            <TextView
+                android:id="@+id/textUnidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textTipoSague"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Unidade: Santo Ântonia"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

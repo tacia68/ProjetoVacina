@@ -21,6 +21,13 @@
     <string name="prompt_sus">Cartão do SUS</string>
     <string name="prompt_parentesco">Parentesco</string>
 
+    <string name="prompt_tipo_vacina">Tipo de Vacina</string>
+    <string name="prompt_data">Data</string>
+    <string name="prompt_lote">Lote</string>
+    <string name="prompt_validade">Validade</string>
+    <string name="prompt_responsavel">Responsável</string>
+    <string name="prompt_unidade">Unidade</string>
+
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -34,7 +41,8 @@
     <string name="search">Pesquisar...</string>
 
 
-    <string name="action_settings">Settings</string>
+    <string name="action_print">Imprimir</string>
+    <string name="action_web_view">Saiba mais sobre vacinas</string>
 
     <string name="menu_edit">Editar</string>
     <string name="menu_remover">Apagar</string>

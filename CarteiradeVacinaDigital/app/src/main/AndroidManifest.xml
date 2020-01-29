@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CadastroPessoa"></activity>
+        <activity android:name=".adapters.AdapterVacina" />
+        <activity android:name=".PainelVacina"
+            android:label="@string/title_activity_painel_pessoa"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".CadastroVacina" />
+        <activity android:name=".CadastroPessoa" />
         <activity
             android:name=".PainelPessoaActivity"
             android:label="@string/title_activity_painel_pessoa"

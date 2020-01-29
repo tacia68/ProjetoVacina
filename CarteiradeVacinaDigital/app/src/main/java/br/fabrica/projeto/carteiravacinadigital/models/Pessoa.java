@@ -1,4 +1,4 @@
-package br.fabrica.projeto.carteiravacinadigital;
+package br.fabrica.projeto.carteiravacinadigital.models;
 
 import java.io.Serializable;
 

@@ -2,6 +2,7 @@ package br.fabrica.projeto.carteiravacinadigital;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -20,12 +21,16 @@ public class CadastroPrincipal extends AppCompatActivity {
         btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Snackbar.make(view,
-                        "Snack with Colors", Snackbar.LENGTH_LONG)
+                        "Cadastro realizado com Sucesso", Snackbar.LENGTH_LONG)
                         .setTextColor(Color.WHITE)
                         .setActionTextColor(Color.WHITE)
                         .setBackgroundTint(Color.parseColor("#00B2C9"))
                         .setAction("Action", null).show();
+
+                Intent intent = new Intent(CadastroPrincipal.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
      

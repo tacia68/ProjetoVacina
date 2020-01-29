@@ -2,9 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_print"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_print"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_web_view"
+        android:orderInCategory="100"
+        android:title="@string/action_web_view"
         app:showAsAction="never" />
 
     <item android:id="@+id/localizar"

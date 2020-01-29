@@ -5,6 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CadastroPessoa">
+
+    <Button
+        android:id="@+id/btCadastrar"
+        android:layout_width="166dp"
+        android:layout_height="52dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="72dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/action_sign_up"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_parentesco"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="391dp"
@@ -16,32 +33,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription,MissingConstraints" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_nome"
-        style="@style/StyledTilEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="96dp"
-            android:layout_marginEnd="24dp"
-
-            android:hint="@string/prompt_nome"
-            android:inputType="textPersonName"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_tipo_sangue"
@@ -122,22 +113,29 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/btCadastrar"
-        android:layout_width="166dp"
-        android:layout_height="52dp"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="144dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/action_sign_up"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_ConfSenha"
-        app:layout_constraintVertical_bias="0.0" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_nome"
+        style="@style/StyledTilEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="24dp"
+
+            android:hint="@string/prompt_nome"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
