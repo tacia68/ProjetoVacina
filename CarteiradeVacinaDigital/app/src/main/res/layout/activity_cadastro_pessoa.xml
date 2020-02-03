@@ -12,6 +12,7 @@
         android:layout_height="52dp"
         android:layout_gravity="start"
         android:layout_marginTop="72dp"
+        android:onClick="adicionar"
         android:background="@color/colorPrimary"
         android:text="@string/action_sign_up"
         android:textColor="@color/colorAccent"
@@ -45,15 +46,14 @@
         tools:layout_editor_absoluteX="-16dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtSangue"
+            android:id="@+id/textTipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
-
             android:hint="@string/prompt_sangue"
-            android:inputType="text|numberSigned"
+            android:inputType="text"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtSus"
+            android:id="@+id/textSus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -103,9 +103,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
-
             android:hint="@string/prompt_parentesco"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,13 +123,12 @@
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtNome"
+            android:id="@+id/textNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
-
             android:hint="@string/prompt_nome"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"

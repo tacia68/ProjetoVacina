@@ -17,7 +17,7 @@ public class CadastroVacina extends AppCompatActivity {
         btCadastroVacina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CadastroVacina.this, PainelVacina.class));
+                startActivity(new Intent(CadastroVacina.this, ListarVacinasActivity.class));
             }
         });
     }

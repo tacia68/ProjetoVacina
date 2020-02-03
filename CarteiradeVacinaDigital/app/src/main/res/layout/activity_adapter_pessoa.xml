@@ -9,7 +9,7 @@
     card_view:cardCornerRadius="4dp"
     card_view:layout_constraintStart_toStartOf="parent"
     card_view:layout_constraintTop_toTopOf="parent"
-    tools:context=".adapters.AdapterPessoa">
+    tools:context=".adapters.PessoaAdapter">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
@@ -38,7 +38,7 @@
                 android:paddingBottom="10dp">
 
                     <TextView
-                        android:id="@+id/textNome"
+                        android:id="@+id/textViewNome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Maria Aparecida dos Santos Pereira Costa"
@@ -57,7 +57,7 @@
             </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textTipoSague"
+                    android:id="@+id/textViewSangue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
@@ -68,7 +68,7 @@
 
 
                 <TextView
-                    android:id="@+id/textSus"
+                    android:id="@+id/textViewSus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textTipoSague"
@@ -77,7 +77,7 @@
                     android:text="Sus: 333222255550000" />
 
                 <TextView
-                    android:id="@+id/textParentesco"
+                    android:id="@+id/textViewParentesco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textTipoSague"

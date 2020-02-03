@@ -13,13 +13,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".adapters.AdapterVacina" />
-        <activity android:name=".PainelVacina"
+        <activity android:name=".ListarVacinasActivity"
             android:label="@string/title_activity_painel_pessoa"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".CadastroVacina" />
         <activity android:name=".CadastroPessoa" />
         <activity
-            android:name=".PainelPessoaActivity"
+            android:name=".ListarPessoasActitivity"
             android:label="@string/title_activity_painel_pessoa"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CadastroPrincipal" />

@@ -14,12 +14,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-import br.fabrica.projeto.carteiravacinadigital.adapters.AdapterPessoa;
 import br.fabrica.projeto.carteiravacinadigital.adapters.AdapterVacina;
-import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 import br.fabrica.projeto.carteiravacinadigital.models.Vacina;
 
-public class PainelVacina extends AppCompatActivity {
+public class ListarVacinasActivity extends AppCompatActivity {
     private ArrayList<Vacina> vacina = new ArrayList<>();
     private RecyclerView rv;
     AdapterVacina adapterVacina;
@@ -42,7 +40,7 @@ public class PainelVacina extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PainelVacina.this, CadastroVacina.class));
+                startActivity(new Intent(ListarVacinasActivity.this, CadastroVacina.class));
             }
         });
 
@@ -58,7 +56,7 @@ public class PainelVacina extends AppCompatActivity {
         rv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PainelVacina.this,PainelVacina.class);
+                Intent intent = new Intent(ListarVacinasActivity.this, ListarVacinasActivity.class);
                 startActivity(intent);
             }
         });

@@ -12,9 +12,10 @@
         android:title="@string/action_web_view"
         app:showAsAction="never" />
 
-    <item android:id="@+id/localizar"
+    <item
+        android:id="@+id/app_bar_search"
         android:icon="@drawable/ic_action_search"
         android:title="@string/search"
-        app:showAsAction="ifRoom"
-        app:actionViewClass="android.widget.SearchView" />
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom" />
 </menu>

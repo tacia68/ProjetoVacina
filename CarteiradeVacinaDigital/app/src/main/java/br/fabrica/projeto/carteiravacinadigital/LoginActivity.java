@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void painel(View view){
-        Intent intent = new Intent(LoginActivity.this, PainelPessoaActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ListarPessoasActitivity.class);
         startActivity(intent);
     }
     public void cadastro(View view){

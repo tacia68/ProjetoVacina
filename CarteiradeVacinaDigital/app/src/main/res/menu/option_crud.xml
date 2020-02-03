@@ -5,5 +5,6 @@
     <item android:id="@+id/menu_add"
         android:title="@string/menu_edit" />
     <item android:id="@+id/menu_remove"
-        android:title="@string/menu_remover" />
+        android:title="@string/menu_remover"
+        android:onClick="excluir"/>
 </menu>

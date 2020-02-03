@@ -1,37 +1,43 @@
 package br.fabrica.projeto.carteiravacinadigital.adapters;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-import br.fabrica.projeto.carteiravacinadigital.PainelVacina;
+import br.fabrica.projeto.carteiravacinadigital.ListarVacinasActivity;
 import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 import br.fabrica.projeto.carteiravacinadigital.R;
 
 
-public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder> {
+public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder> {
     private List<Pessoa> pessoa;
     private  Context mContext;
 
     //Construtor da classe
-    public AdapterPessoa(List<Pessoa> pessoa, Context mContext){
+    public PessoaAdapter(List<Pessoa> pessoa, Context mContext){
         super();
         this.pessoa = pessoa;
         this.mContext = mContext;
     }
+
+
 
     //Declaração do Layout do fragmento junto com view Holder, o suporte
     @NonNull
@@ -46,7 +52,13 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         //Caputra a estrutura get() e set() da classe primitiva
         Pessoa p = pessoa.get(position);
-        holder.btMenu.setOnClickListener(new View.OnClickListener() {
+
+        holder.nome.setText(p.getNome());
+        holder.TipoSanguineo.setText(p.getTiposanguineo());
+        holder.sus.setText(p.getSus());
+        holder.parentesco.setText(p.getParentesco());
+
+        /*holder.btMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PopupMenu popupMenu = new PopupMenu(mContext,holder.btMenu);
@@ -58,7 +70,7 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
                             case R.id.menu_add:
                                 Toast.makeText(mContext, "Editar", Toast.LENGTH_SHORT).show();
                             case R.id.menu_remove:
-                                Toast.makeText(mContext, "Deletar", Toast.LENGTH_SHORT).show();
+
                             break;
                             default:
                                 break;
@@ -73,16 +85,9 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(mContext,PainelVacina.class));
+                mContext.startActivity(new Intent(mContext, ListarVacinasActivity.class));
             }
-        });
-        //Deaclaração dos parâmetros que são buscados no banco de dados e inseridos em uma lista
-       /* holder.textData.setText("Dia "+p.getDataEvento());
-        holder.textHora.setText(p.getHora()+" horas");
-        holder.textTipoMinicurso.setText("Categoria: "+p.getTipoMinicurso());
-        holder.textTitulo.setText(p.getTitulo());
-        holder.textLocal.setText("Local: "+ p.getLocalizacao());
-        holder.textResp.setText("Responsável: "+p.getResponsavel());*/
+        });*/
 
     }
 
@@ -95,7 +100,7 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder{
         CardView card;
         ImageButton btMenu;
-       // TextView textTipoMinicurso, textTitulo, textHora, textLocal, textResp, etiqueta, textData;
+        TextView nome, TipoSanguineo, sus, parentesco;
         ViewHolder (View view){
             super(view);
 
@@ -103,13 +108,12 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
             card = view.findViewById(R.id.card_view);
             //Textos do XML para exibição através do ID
             btMenu = view.findViewById(R.id.ib_popup_menu);
-          /*  textTipoMinicurso = view.findViewById(R.id.tTipoMinicurso);
-            textTitulo = view.findViewById(R.id.tTitulo);
-            textHora = view.findViewById(R.id.tHora);
-            textLocal = view.findViewById(R.id.tLocal);
-            textResp = view.findViewById(R.id.txtResp);
-            etiqueta = view.findViewById(R.id.etiqueta);
-            textData = view.findViewById(R.id.tData);*/
+
+            nome = view.findViewById(R.id.textViewNome);
+            TipoSanguineo = view.findViewById(R.id.textViewSangue);
+            sus = view.findViewById(R.id.textViewSus);
+            parentesco = view.findViewById(R.id.textViewParentesco);
         }
     }
+
 }

@@ -5,38 +5,42 @@ import java.io.Serializable;
 public class Vacina implements Serializable {
     private Integer id;
     private String tipoVacina;
-    private String dataVacina;
-    private Integer lote;
+    private String data;
+    private String lote;
     private String validade;
     private String responsavel;
     private String unidade;
+    private String vacinaPessoaId;
 
-    public Integer getIdVacina() {
+    public Integer getId() {
         return id;
     }
-    public void setIdVacina(Integer id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getTipoVacina() { return tipoVacina;    }
+    public String getTipoVacina() {
+        return tipoVacina;
+    }
 
     public void setTipoVacina(String tipoVacina) {
-        this.tipoVacina =tipoVacina;
+        this.tipoVacina = tipoVacina;
     }
 
-    public String getDataVacina() {
-        return dataVacina;
+    public String getData() {
+        return data;
     }
 
-    public void setDataVacina(String dataVacina) {
-        this.dataVacina = dataVacina;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public Integer getLote() {
+    public String getLote() {
         return lote;
     }
 
-    public void setSus(Integer lote) {
+    public void setLote(String lote) {
         this.lote = lote;
     }
 
@@ -62,5 +66,18 @@ public class Vacina implements Serializable {
 
     public void setUnidade(String unidade) {
         this.unidade = unidade;
+    }
+
+    public String getVacinaPessoaId() {
+        return vacinaPessoaId;
+    }
+
+    public void setVacinaPessoaId(String vacinaPessoaId) {
+        this.vacinaPessoaId = vacinaPessoaId;
+    }
+
+    @Override
+    public String toString(){
+        return tipoVacina;
     }
 }
