@@ -1,14 +1,16 @@
 package br.fabrica.projeto.carteiravacinadigital;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
+import static android.widget.Toast.makeText;
 
 public class Conexao extends SQLiteOpenHelper {
 
-    private static final String name = "teste.db";
+    private static final String name = "teste3.db";
     private static final int version = 1;
 
     public Conexao(Context context) {
@@ -23,7 +25,7 @@ public class Conexao extends SQLiteOpenHelper {
     public static final String LOGIN_EMAIL = "email";
     public static final String LOGIN_SENHA = "senha";
 
-    //tabela Pessoa
+    //tabela Person
     public static final String TBL_PESSOA = "pessoa";
     public static final String PESSOA_ID = "id";
     public static final String PESSOA_NOME = "nome";
@@ -40,6 +42,8 @@ public class Conexao extends SQLiteOpenHelper {
     public static final String VACINA_VALIDADE = "validade";
     public static final String VACINA_RESPONSAVEL = "responsavel";
     public static final String VACINA_UNIDADE = "unidade";
+    //chave estrangeira
+    public static final String VACINA_PESSOA_ID = "vacina_pessoa_id";
 
     //Estrutura das tabelas
     private static final String DATABASE_CREATE_1 = "create table " +
@@ -66,8 +70,9 @@ public class Conexao extends SQLiteOpenHelper {
             VACINA_LOTE + " text, " +
             VACINA_VALIDADE + " text, " +
             VACINA_RESPONSAVEL + " text, " +
-            VACINA_UNIDADE + " text, FOREIGN KEY ( vacina_pessoa ) REFERENCES " +
-            "pessoa ( id ) ON DELETE RESTRICT ON UPDATE CASCADE);";
+            VACINA_UNIDADE + " text, " +
+            VACINA_PESSOA_ID + " integer, FOREIGN KEY ( VACINA_PESSOA_ID ) REFERENCES " +
+            "TBL_PESSOA ( PESSOA_ID  ) ON DELETE RESTRICT ON UPDATE CASCADE)";
 
 
 
@@ -77,12 +82,41 @@ public class Conexao extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE_1);
         database.execSQL(DATABASE_CREATE_2);
-        database.execSQL(DATABASE_CREATE_2);
+        database.execSQL(DATABASE_CREATE_3);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+    //Outro crud
+    void addAdministrador(Administrador administrador)
+    {
+        SQLiteDatabase con = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(LOGIN_NOME, administrador.getNome());
+        contentValues.put(LOGIN_CPF, administrador.getCpf());
+        contentValues.put(LOGIN_EMAIL, administrador.getEmail());
+        contentValues.put(LOGIN_SENHA, administrador.getSenha());
+
+        con.insert(TBL_LOGIN,null,contentValues);
+        con.close();
+    }
+
+
+    String validarLogin(String cpf, String senha)
+    {
+        SQLiteDatabase con = getReadableDatabase();
+        Cursor cursor = con.rawQuery("SELECT * FROM Administrador WHERE LOGIN_CPF = ? AND LOGIN_SENHA = ?", new String[] {cpf, senha});
+
+        if(cursor.getCount() > 0)
+        {
+            return "OK";
+        }
+        return "ERRO";
     }
 }

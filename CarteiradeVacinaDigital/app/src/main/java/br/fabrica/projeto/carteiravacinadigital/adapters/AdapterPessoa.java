@@ -19,10 +19,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import br.fabrica.projeto.carteiravacinadigital.Pessoa;
 import br.fabrica.projeto.carteiravacinadigital.R;
+import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 
 
 public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder> {
@@ -30,7 +31,7 @@ public class AdapterPessoa extends RecyclerView.Adapter<AdapterPessoa.ViewHolder
     private  Context mContext;
 
     //Construtor da classe
-    public AdapterPessoa(List<Pessoa> programacao, Context mContext){
+    public AdapterPessoa(ArrayList<Pessoa> programacao, Context mContext){
         super();
         this.pessoa = programacao;
         this.mContext = mContext;

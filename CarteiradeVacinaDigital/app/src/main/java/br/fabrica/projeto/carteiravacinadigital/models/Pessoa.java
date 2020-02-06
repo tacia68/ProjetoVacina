@@ -1,4 +1,4 @@
-package br.fabrica.projeto.carteiravacinadigital;
+package br.fabrica.projeto.carteiravacinadigital.models;
 
 import java.io.Serializable;
 
@@ -10,6 +10,9 @@ import java.io.Serializable;
         private String tiposanguineo;
         private String sus;
         private String parentesco;
+
+        public Pessoa(String nome, String cpf, String email, String senha) {
+        }
 
         public Integer getId() {
             return id;
@@ -53,7 +56,6 @@ import java.io.Serializable;
         public String toString(){
             return nome;
         }
-
-
     }
+
 

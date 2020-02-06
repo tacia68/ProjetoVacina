@@ -7,25 +7,20 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
 import br.fabrica.projeto.carteiravacinadigital.adapters.AdapterPessoa;
+import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 
 public class PainelPessoaActivity extends AppCompatActivity {
     private ArrayList<Pessoa> pessoa = new ArrayList<>();
@@ -36,6 +31,7 @@ public class PainelPessoaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_painel_pessoa);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         rv = findViewById(R.id.rView);
@@ -55,8 +51,9 @@ public class PainelPessoaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        for (int i = 0; i<10; i++){
-            pessoa.add(new Pessoa());
+        for (int i = 0; i<pessoa.size(); i++){
+            //pessoa.get(new Pessoa(nome,cpf,email,senha));
+
         }
 
         adapterPessoa = new AdapterPessoa(pessoa, this);
