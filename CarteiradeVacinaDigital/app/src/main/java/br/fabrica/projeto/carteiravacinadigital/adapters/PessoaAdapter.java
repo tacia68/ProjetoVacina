@@ -21,14 +21,17 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import br.fabrica.projeto.carteiravacinadigital.ListarPessoasActitivity;
 import br.fabrica.projeto.carteiravacinadigital.ListarVacinasActivity;
 import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 import br.fabrica.projeto.carteiravacinadigital.R;
+import br.fabrica.projeto.carteiravacinadigital.models.Vacina;
 
 
 public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder> {
     private List<Pessoa> pessoa;
     private  Context mContext;
+    ListarPessoasActitivity listarPessoasActitivity;
 
     //Construtor da classe
     public PessoaAdapter(List<Pessoa> pessoa, Context mContext){
@@ -36,7 +39,6 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder
         this.pessoa = pessoa;
         this.mContext = mContext;
     }
-
 
 
     //Declaração do Layout do fragmento junto com view Holder, o suporte
@@ -49,7 +51,7 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder
 
     //insere as variáveis nos textos do XML capturando os dados da lista da Programacao
     @SuppressLint({"SetTextI18n", "ResourceAsColor"})
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         //Caputra a estrutura get() e set() da classe primitiva
         Pessoa p = pessoa.get(position);
 
@@ -58,7 +60,7 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder
         holder.sus.setText(p.getSus());
         holder.parentesco.setText(p.getParentesco());
 
-        /*holder.btMenu.setOnClickListener(new View.OnClickListener() {
+         holder.btMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PopupMenu popupMenu = new PopupMenu(mContext,holder.btMenu);
@@ -66,28 +68,21 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.ViewHolder
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch (menuItem.getItemId()){
-                            case R.id.menu_add:
-                                Toast.makeText(mContext, "Editar", Toast.LENGTH_SHORT).show();
-                            case R.id.menu_remove:
 
-                            break;
-                            default:
-                                break;
-                        }
-                        return false;
+                        listarPessoasActitivity.excluir(menuItem);
+                        return true;
                     }
                 });
 
                 popupMenu.show();
             }
         });
-        holder.card.setOnClickListener(new View.OnClickListener() {
+       holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mContext.startActivity(new Intent(mContext, ListarVacinasActivity.class));
             }
-        });*/
+        });
 
     }
 

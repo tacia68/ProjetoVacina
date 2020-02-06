@@ -1,34 +1,32 @@
 package br.fabrica.projeto.carteiravacinadigital.adapters;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 import br.fabrica.projeto.carteiravacinadigital.R;
-import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 import br.fabrica.projeto.carteiravacinadigital.models.Vacina;
 
 
-public class AdapterVacina extends RecyclerView.Adapter<AdapterVacina.ViewHolder> {
+public class VacinaAdapter extends RecyclerView.Adapter<VacinaAdapter.ViewHolder> {
     private List<Vacina> vacina;
     private Context mContext;
 
     //Construtor da classe
-    public AdapterVacina(List<Vacina> vacina, Context mContext){
+    public VacinaAdapter(List<Vacina> vacina, Context mContext){
         super();
         this.vacina = vacina;
         this.mContext = mContext;
@@ -46,7 +44,15 @@ public class AdapterVacina extends RecyclerView.Adapter<AdapterVacina.ViewHolder
     @SuppressLint({"SetTextI18n", "ResourceAsColor"})
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         //Caputra a estrutura get() e set() da classe primitiva
-        Vacina v = vacina.get(position);
+        //Deaclaração dos parâmetros que são buscados no banco de dados e inseridos em uma lista
+       Vacina v = vacina.get(position);
+        holder.nome.setText(v.getTipoVacina());
+        holder.nomePessoa.setText(v.getVacinaPessoaId());
+        holder.data.setText(v.getData());
+        holder.validade.setText(v.getValidade());
+        holder.lote.setText(v.getLote());
+        holder.responsavel.setText(v.getResponsavel());
+        holder.unidade.setText(v.getUnidade());
         holder.btMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,13 +62,7 @@ public class AdapterVacina extends RecyclerView.Adapter<AdapterVacina.ViewHolder
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
-                            case R.id.menu_add:
-                                Toast.makeText(mContext, "Editar", Toast.LENGTH_SHORT).show();
-                            case R.id.menu_remove:
-                                Toast.makeText(mContext, "Deletar", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                break;
+
                         }
                         return false;
                     }
@@ -70,14 +70,6 @@ public class AdapterVacina extends RecyclerView.Adapter<AdapterVacina.ViewHolder
                 popupMenu.show();
             }
         });
-        //Deaclaração dos parâmetros que são buscados no banco de dados e inseridos em uma lista
-       /* holder.textData.setText("Dia "+p.getDataEvento());
-        holder.textHora.setText(p.getHora()+" horas");
-        holder.textTipoMinicurso.setText("Categoria: "+p.getTipoMinicurso());
-        holder.textTitulo.setText(p.getTitulo());
-        holder.textLocal.setText("Local: "+ p.getLocalizacao());
-        holder.textResp.setText("Responsável: "+p.getResponsavel());*/
-
     }
 
     @Override
@@ -89,7 +81,7 @@ public class AdapterVacina extends RecyclerView.Adapter<AdapterVacina.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder{
         CardView card;
         ImageButton btMenu;
-        // TextView textTipoMinicurso, textTitulo, textHora, textLocal, textResp, etiqueta, textData;
+        TextView nome, nomePessoa, data, validade, lote, responsavel, unidade;
         ViewHolder (View view){
             super(view);
 
@@ -97,13 +89,14 @@ public class AdapterVacina extends RecyclerView.Adapter<AdapterVacina.ViewHolder
             card = view.findViewById(R.id.card_view);
             //Textos do XML para exibição através do ID
             btMenu = view.findViewById(R.id.ib_popup_menu);
-          /*  textTipoMinicurso = view.findViewById(R.id.tTipoMinicurso);
-            textTitulo = view.findViewById(R.id.tTitulo);
-            textHora = view.findViewById(R.id.tHora);
-            textLocal = view.findViewById(R.id.tLocal);
-            textResp = view.findViewById(R.id.txtResp);
-            etiqueta = view.findViewById(R.id.etiqueta);
-            textData = view.findViewById(R.id.tData);*/
+
+            nomePessoa = view.findViewById(R.id.textViewNomePessoa);
+            nome = view.findViewById(R.id.textViewNome);
+            data = view.findViewById(R.id.textViewData);
+            validade = view.findViewById(R.id.textViewValidade);
+            lote = view.findViewById(R.id.textViewLote);
+            responsavel = view.findViewById(R.id.textViewResp);
+            unidade = view.findViewById(R.id.textViewUnidade);
         }
     }
 }

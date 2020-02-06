@@ -20,7 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.AdapterView;
+import android.widget.PopupMenu;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ import br.fabrica.projeto.carteiravacinadigital.adapters.PessoaAdapter;
 import br.fabrica.projeto.carteiravacinadigital.models.Pessoa;
 
 public class ListarPessoasActitivity extends AppCompatActivity {
+    PessoaAdapter adaptador;
 
     private List<Pessoa> pessoasFiltradas = new ArrayList<>();
 
@@ -63,7 +66,7 @@ public class ListarPessoasActitivity extends AppCompatActivity {
         pessoas = dao.obterTodos();
         pessoasFiltradas.addAll(pessoas);
 
-        PessoaAdapter adaptador = new PessoaAdapter(pessoasFiltradas, this);
+        adaptador = new PessoaAdapter(pessoasFiltradas, this);
         rv.setAdapter(adaptador);
         registerForContextMenu(rv);
 
@@ -92,6 +95,7 @@ public class ListarPessoasActitivity extends AppCompatActivity {
         MenuInflater i = getMenuInflater();
         i.inflate(R.menu.painel_pessoa, menu);
 
+
         SearchView sv = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -107,7 +111,24 @@ public class ListarPessoasActitivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.action_web_view) {
+            startActivity(new Intent(this, MyWebView.class));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //Buscar os valores digitados
@@ -125,7 +146,7 @@ public class ListarPessoasActitivity extends AppCompatActivity {
 
 
     //clicar no icone "+" chama a tela de cadastro
-    public void cadastrar(MenuItem item){
+   /* public void cadastrar(MenuItem item){
         Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
     }
@@ -138,7 +159,7 @@ public class ListarPessoasActitivity extends AppCompatActivity {
         Intent it = new Intent(this, MainActivity.class);
         it.putExtra("pessoa", pessoaAtualizar);
         startActivity(it);
-    }
+    }*/
 
     // atualizar a lista de pessoas cadastradas quando voltar
 
@@ -159,22 +180,26 @@ public class ListarPessoasActitivity extends AppCompatActivity {
     }*/
 
     public void excluir(MenuItem item) {
-            AdapterView.AdapterContextMenuInfo menuInfo =(AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            final Pessoa pessoaExcluir = pessoasFiltradas.get(menuInfo.position);
-            AlertDialog dialog = new AlertDialog.Builder(this)
-                    .setTitle("Atenção")
-                    .setMessage("Realmente deseja excluir a vacina?")
-                    .setNegativeButton("NÂO", null)
-                    .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            pessoasFiltradas.remove(pessoaExcluir);
-                            pessoas.remove(pessoaExcluir);
-                            dao.excluir(pessoaExcluir);
-                            rv.invalidate();
-                        }
-                    }).create();
-            dialog.show();
+        AdapterView.AdapterContextMenuInfo menuInfo =(AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final Pessoa pessoaExcluir = pessoasFiltradas.get(menuInfo.position);
+                        AlertDialog dialog = new AlertDialog.Builder(this)
+                                .setTitle("Atenção")
+                                .setMessage("Realmente deseja excluir a vacina?")
+                                .setNegativeButton("NÂO", null)
+                                .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        pessoasFiltradas.remove(pessoaExcluir);
+                                        pessoas.remove(pessoaExcluir);
+                                        dao.excluir(pessoaExcluir);
+                                        rv.invalidate();
+                                    }
+                                }).create();
+                        dialog.show();
+
+
+
+
         }
     /*public void onBackPressed(){
         if(backPressedTime + 2000> System.currentTimeMillis()){

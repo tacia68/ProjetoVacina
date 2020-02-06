@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="10dp"
     card_view:cardCornerRadius="4dp"
     card_view:layout_constraintStart_toStartOf="parent"
     card_view:layout_constraintTop_toTopOf="parent"
-    tools:context=".adapters.AdapterVacina">
+    tools:context=".adapters.VacinaAdapter">
     <TextView
-        android:id="@+id/textNomePessoa"
+        android:id="@+id/textViewNomePessoa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -41,7 +41,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textNome"
+                    android:id="@+id/textViewNome"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
@@ -54,7 +54,7 @@
                 <ImageButton
                     android:id="@+id/ib_popup_menu"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="300sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
@@ -64,7 +64,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textData"
+                android:id="@+id/textViewData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -74,7 +74,7 @@
 
 
             <TextView
-                android:id="@+id/textValidade"
+                android:id="@+id/textViewValidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textTipoSague"
@@ -83,7 +83,7 @@
                 android:text="Validade: 00/00/2019" />
 
             <TextView
-                android:id="@+id/textLote"
+                android:id="@+id/textViewLote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textTipoSague"
@@ -92,7 +92,7 @@
                 android:text="Lote:0007"/>
 
             <TextView
-                android:id="@+id/textResp"
+                android:id="@+id/textViewResp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textTipoSague"
@@ -101,7 +101,7 @@
                 android:text="Responsável: Fulano de Tal"/>
 
             <TextView
-                android:id="@+id/textUnidade"
+                android:id="@+id/textViewUnidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textTipoSague"
