@@ -11,7 +11,7 @@ import static android.widget.Toast.makeText;
 public class Conexao extends SQLiteOpenHelper {
 
     private static final String name = "teste3.db";
-    private static final int version = 1;
+    private static final int version = 4;
 
     public Conexao(Context context) {
         super(context, name, null, version);
