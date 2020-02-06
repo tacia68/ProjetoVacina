@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.fabrica.projeto.carteiravacinadigital">
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name = "android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name = "android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -19,7 +20,7 @@
             android:name=".ListarVacinasActivity"
             android:label="@string/title_activity_painel_pessoa"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".CadastroVacina"
             android:screenOrientation="portrait" />

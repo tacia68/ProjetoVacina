@@ -41,7 +41,7 @@
     <string name="search">Pesquisar...</string>
 
 
-    <string name="action_print">Imprimir</string>
+    <string name="action_pdf">Exportar</string>
     <string name="action_web_view">Saiba mais sobre vacinas</string>
 
     <string name="menu_edit">Editar</string>
