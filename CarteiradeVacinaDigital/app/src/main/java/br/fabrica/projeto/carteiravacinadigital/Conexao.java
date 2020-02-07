@@ -1,10 +1,13 @@
 package br.fabrica.projeto.carteiravacinadigital;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
+import br.fabrica.projeto.carteiravacinadigital.models.Administrador;
 
 public class Conexao extends SQLiteOpenHelper {
 
@@ -87,5 +90,33 @@ public class Conexao extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+    //Outro crud
+    void addAdministrador(Administrador administrador)
+    {
+        SQLiteDatabase con = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(LOGIN_NOME, administrador.getNome());
+        contentValues.put(LOGIN_CPF, administrador.getCpf());
+        contentValues.put(LOGIN_EMAIL, administrador.getEmail());
+        contentValues.put(LOGIN_SENHA, administrador.getSenha());
+
+        con.insert(TBL_LOGIN,null,contentValues);
+        con.close();
+    }
+
+
+    String validarLogin(String cpf, String senha)
+    {
+        SQLiteDatabase con = getReadableDatabase();
+        Cursor cursor = con.rawQuery("SELECT * FROM login WHERE cpf = ? AND senha = ?", new String[] {cpf, senha});
+
+        if(cursor.getCount() > 0)
+        {
+            return "OK";
+        }
+        return "ERRO";
     }
 }

@@ -2,12 +2,10 @@ package br.fabrica.projeto.carteiravacinadigital;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,10 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.AdapterView;
-import android.widget.PopupMenu;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +88,7 @@ public class ListarPessoasActitivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater i = getMenuInflater();
-        i.inflate(R.menu.painel_pessoa, menu);
+        i.inflate(R.menu.menu_pessoa, menu);
 
 
         SearchView sv = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
@@ -116,20 +111,6 @@ public class ListarPessoasActitivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_web_view) {
-            startActivity(new Intent(this, MyWebView.class));
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     //Buscar os valores digitados
     public void procurarPessoas(String nome){
@@ -197,7 +178,7 @@ public class ListarPessoasActitivity extends AppCompatActivity {
                                 }).create();
                         dialog.show();
         }
-    /*public void onBackPressed(){
+   /* public void onBackPressed(){
         if(backPressedTime + 2000> System.currentTimeMillis()){
             moveTaskToBack(true);
             finish();

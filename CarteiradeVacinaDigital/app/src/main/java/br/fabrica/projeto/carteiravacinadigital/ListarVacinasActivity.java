@@ -7,43 +7,29 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.ImgTemplate;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import br.fabrica.projeto.carteiravacinadigital.DAO.VacinaDAO;
-import br.fabrica.projeto.carteiravacinadigital.adapters.PessoaAdapter;
 import br.fabrica.projeto.carteiravacinadigital.adapters.VacinaAdapter;
 import br.fabrica.projeto.carteiravacinadigital.models.Vacina;
 
@@ -129,7 +115,7 @@ public class ListarVacinasActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.painel_pessoa, menu);
+        getMenuInflater().inflate(R.menu.menu_vacina, menu);
 
         SearchView sv = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
