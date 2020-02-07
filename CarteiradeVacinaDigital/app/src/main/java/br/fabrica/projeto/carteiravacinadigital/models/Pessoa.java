@@ -1,9 +1,12 @@
 package br.fabrica.projeto.carteiravacinadigital.models;
 
+import android.widget.PopupMenu;
+
 import java.io.Serializable;
+import java.util.List;
 
 
-    public class Pessoa implements Serializable {
+public class Pessoa implements Serializable {
 
         private Integer id;
         private String nome;

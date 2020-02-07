@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.AdapterView;
+import android.widget.PopupMenu;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
@@ -160,24 +162,50 @@ public class ListarPessoasActitivity extends AppCompatActivity {
         i.inflate(R.menu.option_crud, menu);
     }*/
 
-    public void excluir(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo menuInfo =(AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        final Pessoa pessoaExcluir = pessoasFiltradas.get(menuInfo.position);
-                        AlertDialog dialog = new AlertDialog.Builder(this)
-                                .setTitle("Atenção")
-                                .setMessage("Realmente deseja excluir a vacina?")
-                                .setNegativeButton("NÂO", null)
-                                .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        pessoasFiltradas.remove(pessoaExcluir);
-                                        pessoas.remove(pessoaExcluir);
-                                        dao.excluir(pessoaExcluir);
-                                        rv.invalidate();
-                                    }
-                                }).create();
-                        dialog.show();
-        }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        //menuInfo is null
+        menu.add(Menu.NONE, R.id.menu_remove,
+                Menu.NONE, R.string.menu_remover);
+        menu.add(Menu.NONE, R.id.menu_add,
+                Menu.NONE, R.string.menu_edit);
+    }
+
+
+    public void excluir(View view) {
+
+        final PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.inflate(R.menu.option_crud);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(final MenuItem menuItem) {
+                AdapterView.AdapterContextMenuInfo menuInfo =(AdapterView.AdapterContextMenuInfo) menuItem.getMenuInfo();
+                final Pessoa pessoaExcluir = pessoasFiltradas.get(menuInfo.position);
+                if (menuItem.getItemId() == R.id.menu_remove) {
+                    AlertDialog dialog = new AlertDialog.Builder(ListarPessoasActitivity.this)
+                            .setTitle("Atenção")
+                            .setMessage("Realmente deseja excluir a vacina?")
+                            .setNegativeButton("NÂO", null)
+                            .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    pessoasFiltradas.remove(pessoaExcluir);
+                                    pessoas.remove(pessoaExcluir);
+                                   // dao.excluir(pessoaExcluir);
+                                    rv.invalidate();
+                                }
+                            }).create();
+                    dialog.show();
+                }
+
+
+                return true;
+            }
+        });
+
+        popupMenu.show();
+    }
    /* public void onBackPressed(){
         if(backPressedTime + 2000> System.currentTimeMillis()){
             moveTaskToBack(true);
